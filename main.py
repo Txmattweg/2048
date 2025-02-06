@@ -24,7 +24,15 @@ mainframe = Frame()
 def init_grid():
     background = Frame(bg=BACKGROUND_COLOR_GAME, width=SIZE, height=SIZE)
     background.grid()
+    for i in range(GRID_LEN):
+        grid_row = []
+        for j in range(GRID_LEN):
+            cell = Frame(background, bg=BACKGROUND_COLOR_CELL_EMPTY, width=SIZE/GRID_LEN, height=SIZE/GRID_LEN)
+            cell.grid(row=i, column=j, padx=GRID_PADDING, pady=GRID_PADDING)
+
+def main():
+    init_grid()
     mainloop()
 
-
-init_grid()
+if __name__=="__main__":
+    main()
